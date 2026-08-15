@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Eclat | Luxury Hotel & Suites</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Elegant Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header id="main-header">
+        <div class="logo" onclick="app.navigate('home-view')">The Grand Eclat</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="app.navigate('home-view')">Home</a></li>
+                <li><a href="#" onclick="app.navigate('rooms-view')">Suites</a></li>
+                <li><a href="#" onclick="app.navigate('amenities-view')">Amenities</a></li>
+                <li><a href="#" onclick="app.navigate('contact-view')">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="btn-primary nav-btn" onclick="app.navigate('booking-view')">Book Now</button>
+        <div class="mobile-menu-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <!-- ================= HOME VIEW ================= -->
+        <section id="home-view" class="view active">
+            <div class="hero">
+                <div class="hero-content animate-on-scroll">
+                    <h1>Experience Unrivaled Elegance</h1>
+                    <p>Where classic sophistication meets modern luxury.</p>
+                    <button class="btn-primary btn-large" onclick="app.navigate('rooms-view')">Discover Our Suites</button>
+                </div>
+            </div>
+
+            <!-- Quick Booking Widget -->
+            <div class="quick-booking animate-on-scroll">
+                <form onsubmit="event.preventDefault(); app.navigate('booking-view');">
+                    <div class="input-group">
+                        <label>Check-in</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Check-out</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Guests</label>
+                        <select required>
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-secondary">Check Availability</button>
+                </form>
+            </div>
+            
+            <div class="welcome-section animate-on-scroll container">
+                <h2 class="section-title">A Sanctuary in the City</h2>
+                <p class="text-center">Immerse yourself in a world of refined comfort. From our breathtaking grand lobby to our meticulously appointed suites, every detail is designed to provide an unforgettable stay.</p>
+            </div>
+        </section>
+
+        <!-- ================= ROOMS LISTING VIEW ================= -->
+        <section id="rooms-view" class="view container padding-top-lg">
+            <h2 class="section-title animate-on-scroll">Accommodations</h2>
+            <div class="rooms-grid" id="rooms-container">
+                <!-- Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- ================= ROOM DETAIL VIEW ================= -->
+        <section id="room-detail-view" class="view container padding-top-lg">
+            <button class="btn-back" onclick="app.navigate('rooms-view')"><i class="fas fa-arrow-left"></i> Back to Suites</button>
+            <div id="room-detail-content" class="animate-on-scroll">
+                <!-- Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- ================= AMENITIES & GALLERY VIEW ================= -->
+        <section id="amenities-view" class="view container padding-top-lg">
+            <h2 class="section-title animate-on-scroll">Exquisite Amenities</h2>
+            <div class="amenities-grid animate-on-scroll">
+                <div class="amenity-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Tranquility Spa</h3>
+                    <p>Rejuvenate your senses with our award-winning therapeutic treatments and thermal baths.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Fine Dining</h3>
+                    <p>Experience culinary masterpieces prepared by our Michelin-starred executive chef.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>Infinity Pool</h3>
+                    <p>Relax in our climate-controlled rooftop pool offering panoramic city skyline views.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>24/7 Concierge</h3>
+                    <p>Our dedicated staff is at your service around the clock to fulfill any request.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= BOOKING VIEW ================= -->
+        <section id="booking-view" class="view container padding-top-lg">
+            <h2 class="section-title animate-on-scroll">Reserve Your Stay</h2>
+            <div class="booking-container animate-on-scroll">
+                <form id="full-booking-form" class="booking-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>First Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Last Name</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="tel" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Check-in Date</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Check-out Date</label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Suite Selection</label>
+                            <select id="booking-room-select" required>
+                                <option value="deluxe">Deluxe King Room</option>
+                                <option value="executive">Executive Suite</option>
+                                <option value="penthouse">The Grand Penthouse</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Guests</label>
+                            <div class="guest-counter">
+                                <button type="button" onclick="app.updateGuests(-1)">-</button>
+                                <input type="number" id="guest-count" value="2" min="1" max="6" readonly>
+                                <button type="button" onclick="app.updateGuests(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Special Requests</label>
+                        <textarea rows="4" placeholder="Dietary requirements, celebrations, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-large" style="width: 100%;">Confirm Reservation</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT VIEW ================= -->
+        <section id="contact-view" class="view container padding-top-lg">
+            <h2 class="section-title animate-on-scroll">Get in Touch</h2>
+            <div class="contact-grid animate-on-scroll">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Metropolis, NY 10001</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> reservations@thegrandeclat.com</p>
+                    <div class="map-placeholder">
+                        <p>[ Interactive Map Integration ]</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form onsubmit="event.preventDefault(); alert('Message sent successfully. Our concierge will be in touch shortly.');">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-secondary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>The Grand Eclat</h3>
+                <p>Redefining luxury hospitality since 1924.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Grand Eclat Hotel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
